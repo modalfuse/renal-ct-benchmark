@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software or the frozen fold file, please cite it using these metadata. Cite the accompanying manuscript when referring to the scientific findings."
+message: "If you use this software or the frozen fold file, please cite it using these metadata."
 title: "Renal CT Benchmark: public five-class renal-tumor CT subtyping"
 type: software
 version: 1.0.0

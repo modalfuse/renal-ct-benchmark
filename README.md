@@ -62,9 +62,7 @@ Cite this software archive as:
 
 > Liu Q. Renal CT Benchmark: public five-class renal-tumor CT subtyping. Zenodo. https://doi.org/10.5281/zenodo.23668646
 
-Citation metadata are also provided in `CITATION.cff`. When referring to the scientific findings, please also cite the accompanying manuscript:
-
-> Q. Liu, "A public-data ceiling for five-class renal tumor CT subtyping: radiomics, deep learning, and foundation models do not close the cross-institution gap," manuscript.
+Citation metadata are also provided in `CITATION.cff`.
 
 ## Licensing
 
