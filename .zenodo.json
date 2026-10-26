@@ -1,11 +1,11 @@
 {
-  "upload_type": "software",
   "title": "Renal CT Benchmark: public five-class renal-tumor CT subtyping",
-  "version": "1.0.0",
-  "publication_date": "2026-10-26",
-  "language": "eng",
+  "upload_type": "software",
   "access_right": "open",
-  "license": "mit",
+  "license": "MIT",
+  "language": "eng",
+  "version": "v1.0.0",
+  "publication_date": "2026-10-26",
   "creators": [
     {
       "name": "Liu, Qiang",
@@ -13,21 +13,59 @@
       "orcid": "0000-0003-3699-5858"
     }
   ],
-  "description": "<p>This archive is version 1.0.0 of the Renal CT Benchmark code and frozen fold file. It trains on public UCSF-RMaC portal-venous CT and evaluates on public RCC-AID and KiTS23. The ladder is a size logistic baseline, frozen radiomics, 3D ResNet runs, and linear probes of three CT foundation models. Images, masks, and foundation-model weights are not included; obtain them from the sources named in the README.</p><p>The code is MIT. Cohort licences remain with the public sources (UCSF-RMaC CC BY 4.0, RCC-AID annotations CC BY 4.0, KiTS23 CC BY-NC-SA 4.0).</p><p>Cite this archive as Liu Q. Renal CT Benchmark: public five-class renal-tumor CT subtyping. Zenodo. <a href=\"https://doi.org/10.5281/zenodo.23668646\">https://doi.org/10.5281/zenodo.23668646</a>. Cite the accompanying manuscript for the scientific findings.</p>",
+  "keywords": [
+    "renal tumor",
+    "computed tomography",
+    "public benchmark",
+    "cross-institutional testing",
+    "balanced accuracy",
+    "radiomics",
+    "foundation model"
+  ],
   "related_identifiers": [
     {
       "identifier": "https://github.com/modalfuse/renal-ct-benchmark",
       "relation": "isSupplementTo",
       "resource_type": "software",
       "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/modalfuse/renal-ct-benchmark/tree/v1.0.0",
+      "relation": "isIdenticalTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.58078/C2WC74",
+      "relation": "cites",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.7840133",
+      "relation": "cites",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.59275/j.melba.2026-2dg2",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.11383543",
+      "relation": "cites",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.10528450",
+      "relation": "cites",
+      "resource_type": "software",
+      "scheme": "doi"
     }
   ],
-  "keywords": [
-    "renal tumor",
-    "computed tomography",
-    "public benchmark",
-    "cross-institutional testing",
-    "balanced accuracy"
-  ],
-  "notes": "Version 1.0.0. Repository: https://github.com/modalfuse/renal-ct-benchmark. Contact: liuq@bipt.edu.cn."
+  "notes": "This software archive accompanies the public five-class renal-tumor CT benchmark. Training uses UCSF-RMaC portal-venous CT (doi:10.58078/C2WC74). External testing uses RCC-AID and KiTS23 (doi:10.5281/zenodo.7840133). Public images and foundation-model weights remain available from their original providers and are not redistributed in this deposit. Licensing: source code is released under the MIT License (LICENSE). MMM/UMedPT weights (Zenodo record 11383543) and FMCIB weights (doi:10.5281/zenodo.10528450) are not included.",
+  "description": "<p>This reproducibility-focused software archive provides <strong>Renal CT Benchmark</strong>, a public-data ceiling study for five-class renal-tumor CT subtyping. It accompanies the manuscript <em>A public-data ceiling for five-class renal tumor CT subtyping: radiomics, deep learning, and foundation models do not close the cross-institution gap</em>.</p>\n\n<p>The repository supports an independent rerun of one frozen protocol. Training uses UCSF-RMaC portal-venous cases. External testing uses RCC-AID (three classes) and KiTS23 (five classes). The primary metric is balanced accuracy. The ladder changes one factor at a time: a size-only logistic baseline (L0), frozen PyRadiomics features with XGBoost (L2), 3D ResNet training with two rebalancing ablations (L3), and linear probes of three CT foundation models (L4).</p>\n\n<h2>Included materials</h2>\n<ul>\n<li><strong>Frozen fold file</strong> (<code>data/ucsf_pv_stratified_split_5fold.csv</code>): 532 public case identifiers, five-class labels, and folds 0–4. Seed <code>20261024</code> is for augmentation and initialization. Do not rebuild the folds with <code>StratifiedKFold</code>.</li>\n<li><strong>L0–L4 scripts</strong> (<code>src/</code>): size logistic regression, radiomics extraction, ResNet training, external evaluation, and the three linear probes.</li>\n<li><strong>Shell wrappers</strong> (<code>scripts/</code>): <code>run_cv.sh</code>, <code>run_ext.sh</code>, and <code>run_l4.sh</code>. Image and weight paths are environment variables or command-line arguments.</li>\n</ul>\n\n<h2>Repository layout</h2>\n<ul>\n<li><code>data/</code>: the frozen fold file</li>\n<li><code>src/</code>: L0–L4, segmentation, and ROI crop</li>\n<li><code>scripts/</code>: cross-validation, external test, and L4 probe wrappers</li>\n<li><code>CONTENTS.md</code>: file list</li>\n</ul>\n\n<h2>Install and verify</h2>\n<p>Download UCSF-RMaC, RCC-AID, and KiTS23 from the providers named in the README. Download MMM/UMedPT, FMCIB, and CT-FM weights from their official records. Do not commit those files. Then:</p>\n<pre><code>bash scripts/run_cv.sh\nbash scripts/run_ext.sh\nbash scripts/run_l4.sh mmm\n</code></pre>\n<p>The analysis denominators are 532 UCSF-RMaC portal-venous cases, 91 RCC-AID patients, and 427 KiTS23 cases. External scores average the five fold-wise probability vectors. RCC-AID keeps the first three class probabilities and renormalizes each row with a denominator floor of <code>1e-8</code>.</p>\n\n<h2>Data and privacy boundary</h2>\n<p>UCSF-RMaC remains available from UCSF Ci2, <a href=\"https://doi.org/10.58078/C2WC74\">10.58078/C2WC74</a> (CC BY 4.0). RCC-AID annotations are described in MELBA, <a href=\"https://doi.org/10.59275/j.melba.2026-2dg2\">10.59275/j.melba.2026-2dg2</a>. KiTS23 remains available from Zenodo, <a href=\"https://doi.org/10.5281/zenodo.7840133\">10.5281/zenodo.7840133</a> (CC BY-NC-SA 4.0). This deposit archives code and the fold file only. Raw CT, masks, ROI volumes, large feature tables, and foundation-model weights are not redistributed. MMM/UMedPT weights are Zenodo record 11383543 under the Fraunhofer non-commercial research licence. FMCIB weights are <a href=\"https://doi.org/10.5281/zenodo.10528450\">10.5281/zenodo.10528450</a> (CC BY-NC). CT-FM feature-extractor weights are the official Hugging Face model <code>project-lighter/ct_fm_feature_extractor</code>.</p>\n\n<h2>Citation</h2>\n<p>Please cite this software archive as:</p>\n<blockquote>Liu Q. Renal CT Benchmark: public five-class renal-tumor CT subtyping. Zenodo. <a href=\"https://doi.org/10.5281/zenodo.23668646\">https://doi.org/10.5281/zenodo.23668646</a></blockquote>\n<p>Citation metadata are also provided in <code>CITATION.cff</code>. When referring to the scientific findings, please also cite the accompanying manuscript:</p>\n<blockquote>Q. Liu, \"A public-data ceiling for five-class renal tumor CT subtyping: radiomics, deep learning, and foundation models do not close the cross-institution gap,\" manuscript.</blockquote>\n<p><strong>Software repository:</strong> <a href=\"https://github.com/modalfuse/renal-ct-benchmark\">https://github.com/modalfuse/renal-ct-benchmark</a></p>"
 }
