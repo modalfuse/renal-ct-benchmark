@@ -1,0 +1,33 @@
+{
+  "upload_type": "software",
+  "title": "Renal CT Benchmark: public five-class renal-tumor CT subtyping",
+  "version": "1.0.0",
+  "publication_date": "2026-10-26",
+  "language": "eng",
+  "access_right": "open",
+  "license": "mit",
+  "creators": [
+    {
+      "name": "Liu, Qiang",
+      "affiliation": "Academy of Artificial Intelligence, Beijing Institute of Petrochemical Technology",
+      "orcid": "0000-0003-3699-5858"
+    }
+  ],
+  "description": "<p>This archive is version 1.0.0 of the Renal CT Benchmark code and frozen fold file. It trains on public UCSF-RMaC portal-venous CT and evaluates on public RCC-AID and KiTS23. The ladder is a size logistic baseline, frozen radiomics, 3D ResNet runs, and linear probes of three CT foundation models. Images, masks, and foundation-model weights are not included; obtain them from the sources named in the README.</p><p>The code is MIT. Cohort licences remain with the public sources (UCSF-RMaC CC BY 4.0, RCC-AID annotations CC BY 4.0, KiTS23 CC BY-NC-SA 4.0).</p><p>Cite this archive as Liu Q. Renal CT Benchmark: public five-class renal-tumor CT subtyping. Zenodo. <a href=\"https://doi.org/10.5281/zenodo.23668646\">https://doi.org/10.5281/zenodo.23668646</a>. Cite the accompanying manuscript for the scientific findings.</p>",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/modalfuse/renal-ct-benchmark",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ],
+  "keywords": [
+    "renal tumor",
+    "computed tomography",
+    "public benchmark",
+    "cross-institutional testing",
+    "balanced accuracy"
+  ],
+  "notes": "Version 1.0.0. Repository: https://github.com/modalfuse/renal-ct-benchmark. Contact: liuq@bipt.edu.cn."
+}

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code or the frozen fold file, please cite this archive. Cite the accompanying manuscript when referring to the scientific findings."
+type: software
+title: "Renal CT Benchmark: public five-class renal-tumor CT subtyping"
+date-released: "2026-10-26"
+version: "1.0.0"
+doi: "10.5281/zenodo.23668646"
+authors:
+  - family-names: "Liu"
+    given-names: "Qiang"
+    affiliation: "Academy of Artificial Intelligence, Beijing Institute of Petrochemical Technology"
+    email: "liuq@bipt.edu.cn"
+    orcid: "https://orcid.org/0000-0003-3699-5858"
+    city: "Beijing"
+    country: "CN"
+license:
+  - "MIT"
+keywords:
+  - "renal tumor"
+  - "computed tomography"
+  - "public benchmark"
+  - "cross-institutional testing"
+  - "balanced accuracy"
+repository-code: "https://github.com/modalfuse/renal-ct-benchmark"
